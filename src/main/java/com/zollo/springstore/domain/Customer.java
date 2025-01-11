@@ -11,13 +11,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private Integer quantity;
-    private Integer price;
-    @ManyToMany(mappedBy = "products")
-    private List<CustomerOrder> orders;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    List<CustomerOrder> orders;
 }
