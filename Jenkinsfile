@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', 
-                    url: 'https://github.com/mikulobams/myweatherapp-tech-test-main.git'
+                    url: 'https://github.com/mikulobams/springstore.git'
             }
         }
 
