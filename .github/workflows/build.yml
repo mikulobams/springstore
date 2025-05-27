@@ -30,16 +30,20 @@ jobs:
           overwrite-settings: true
 
       # Step 3: Compile and Test the Spring Boot application using Maven
-      - name: Build and Test with Maven
-        run: mvn clean install
+      - name: Compile with Maven
+        run: mvn clean compile -DSkipTests=true
 
+      # Step 4: Test the Spring Boot application using Maven
+      - name: Test with Maven
+        run: mvn clean test
+        
       # Debug: List the target directory
       - name: List Target Directory
         run: ls -la target
 
       # (Optional) Step 4: Package the application if needed (e.g., to create a JAR file)
       - name: Package Application
-        run: mvn package
+        run: mvn package -DSkipTests=true
 
       # (Optional) Step 5: Upload the artifact for later deployment or sharing
       - name: Upload Build Artifact
