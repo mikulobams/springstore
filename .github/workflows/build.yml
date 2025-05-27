@@ -16,14 +16,18 @@ jobs:
         uses: actions/checkout@v2
 
       # Step 2: Set up the Java environment (using Java 11 in this example)
-      - name: Set Up JDK 11
+      - name: Set Up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '17'
 
       # Step 3: Compile and Test the Spring Boot application using Maven
       - name: Build and Test with Maven
         run: mvn clean install
+
+      # Debug: List the target directory
+      - name: List Target Directory
+        run: ls -la target
 
       # (Optional) Step 4: Package the application if needed (e.g., to create a JAR file)
       - name: Package Application
